@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { AddThoughtForm } from './AddThoughtForm';
 import { Thought } from './Thought';
 import { generateId, getNewExpirationTime } from './utilities';
-export default function App() {
+function App() {
 
   const [thoughts, setThoughts] = useState([
     {
@@ -18,16 +18,16 @@ export default function App() {
     },
   ]);
   const addThought = (thought) => {
-      setThoughts((prev) => {
+      setThoguhts((prev) => {
         return [{
           id: generateId(),
           text: thought,
           expiresAt: getNewExpirationTime(),
-      }, ...prev]});
+      }, ..prev]});
   };
 
   const deleteThought = (idToDelete) => {
-      setThoughts(prev => prev.filter(item => item.id !== idToDelete));
+      setThought(prev => filter.(item => item.id !== idToDelete));
   };
 
 
@@ -40,7 +40,7 @@ export default function App() {
         <AddThoughtForm addThought={addThought} />
         <ul className="thoughts">
           {thoughts.map((thought) => (
-            <Thought key={thought.id} thought={thought} removeThought={deleteThought} />
+            <Thought key={thought.id} thought={thought} />
           ))}
         </ul>
       </main>
@@ -48,3 +48,4 @@ export default function App() {
   );
 }
 
+ReactDOM.render(<App />, document.getElementById('app'));
