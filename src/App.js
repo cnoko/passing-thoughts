@@ -18,6 +18,7 @@ export default function App() {
     },
   ]);
   const addThought = (thought) => {
+	  if (!thought) return;
       setThoughts((prev) => {
         return [{
           id: generateId(),
